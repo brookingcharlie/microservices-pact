@@ -1,0 +1,13 @@
+diff --git a/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Foo.java b/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Foo.java
+index f0acce2..8d47b67 100644
+--- a/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Foo.java
++++ b/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Foo.java
+@@ -15,4 +15,8 @@ public class Foo {
+     public void setValue(int value) {
+         this.value = value;
+     }
++
++    public String getExtra() {
++        return "123";
++    }
+ }

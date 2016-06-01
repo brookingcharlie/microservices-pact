@@ -1,0 +1,31 @@
+diff --git a/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Application.java b/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Application.java
+index e28a7d8..7211a03 100644
+--- a/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Application.java
++++ b/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Application.java
+@@ -23,7 +23,7 @@ public class Application {
+         SpringApplication.run(Application.class, args);
+     }
+ 
+-    @RequestMapping(value = "/foos", method = RequestMethod.GET)
++    @RequestMapping(value = "/foos", method = RequestMethod.GET, produces = "application/json;charset=ASCII")
+     public ResponseEntity<List<Foo>> foos() {
+         return new ResponseEntity<>(Arrays.asList(new Foo(42), new Foo(100)), HttpStatus.OK);
+     }
+diff --git a/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Foo.java b/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Foo.java
+index f0acce2..7906737 100644
+--- a/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Foo.java
++++ b/microservices-pact-provider/src/main/java/io/pivotal/microservices/pact/provider/Foo.java
+@@ -8,11 +8,11 @@ public class Foo {
+         this.value = value;
+     }
+ 
+-    public int getValue() {
++    public int getVal() {
+         return value;
+     }
+ 
+-    public void setValue(int value) {
++    public void setVal(int value) {
+         this.value = value;
+     }
+ }

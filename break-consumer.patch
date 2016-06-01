@@ -1,0 +1,25 @@
+diff --git a/microservices-pact-consumer/src/main/java/io/pivotal/microservices/pact/consumer/ConsumerPort.java b/microservices-pact-consumer/src/main/java/io/pivotal/microservices/pact/consumer/ConsumerPort.java
+index 795aaf3..1ec21d8 100644
+--- a/microservices-pact-consumer/src/main/java/io/pivotal/microservices/pact/consumer/ConsumerPort.java
++++ b/microservices-pact-consumer/src/main/java/io/pivotal/microservices/pact/consumer/ConsumerPort.java
+@@ -23,6 +23,6 @@ public class ConsumerPort {
+ 
+     public List<Foo> foos() {
+         ParameterizedTypeReference<List<Foo>> responseType = new ParameterizedTypeReference<List<Foo>>() {};
+-        return restTemplate.exchange(url + "/foos", HttpMethod.GET, null, responseType).getBody();
++        return restTemplate.exchange(url + "/foos", HttpMethod.POST, null, responseType).getBody();
+     }
+ }
+diff --git a/microservices-pact-consumer/src/test/java/io/pivotal/microservices/pact/consumer/ConsumerPortTest.java b/microservices-pact-consumer/src/test/java/io/pivotal/microservices/pact/consumer/ConsumerPortTest.java
+index a617bc4..64ce952 100644
+--- a/microservices-pact-consumer/src/test/java/io/pivotal/microservices/pact/consumer/ConsumerPortTest.java
++++ b/microservices-pact-consumer/src/test/java/io/pivotal/microservices/pact/consumer/ConsumerPortTest.java
+@@ -23,7 +23,7 @@ public class ConsumerPortTest {
+ 
+         return builder.uponReceiving("a request for Foos")
+                 .path("/foos")
+-                .method("GET")
++                .method("POST")
+ 
+                 .willRespondWith()
+                 .headers(headers)
