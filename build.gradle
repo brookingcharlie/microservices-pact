@@ -72,7 +72,7 @@ project(':microservices-pact-provider') {
     apply plugin: 'com.github.johnrengelman.processes'
 
     ext {
-        pactFilePath = "$System.env.PACT_FILE"
+        pactFilePath = "microservices-pact-consumer/target/pacts/Foo_Consumer-Foo_Provider.json" // "$System.env.PACT_FILE"
     }
 
     task startProvider(type: com.github.jengelman.gradle.plugins.processes.tasks.JavaFork) {
