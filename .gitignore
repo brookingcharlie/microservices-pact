@@ -2,8 +2,10 @@
 *.iws
 *.iml
 .gradle
+.classpath
+.project
+.settings
 out
 target
 build
 foo-consumer-version
-
