@@ -28,7 +28,7 @@ allprojects {
     }
 
     ext {
-        versionFilePath = "$System.env.VERSION_FILE_PATH"
+        versionFilePath = "version" // "$System.env.VERSION_FILE_PATH"
     }
 
     task loadVersion {
